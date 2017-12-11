@@ -29,6 +29,8 @@ while not done:
             done = False
 
 print("On the bottom of the tower is:", search)
+print("Part 1:", search)
+
 
 # part 2
 
@@ -42,6 +44,7 @@ while True:
     if masses[0][0] == masses[-1][0]:
         print(search, "has the bad weight", d[search]['w'], "it should be",
               d[search]['w'] + (prevmasses[0][0] - d[search]['all']), "instead")
+        print("Part 2:", d[search]['w'] + (prevmasses[0][0] - d[search]['all']))
         break
 
     prev = search

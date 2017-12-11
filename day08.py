@@ -17,7 +17,7 @@ for i in open("day08.txt").read().split("\n"):
     maxes.append(max(registers[key] for key in registers))
 
 # part 1
-print(max(registers[key] for key in registers))
+print("part 1:", max(registers[key] for key in registers))
 
 # part 2
-print(max(maxes))
+print("part 2:", max(maxes))

@@ -30,7 +30,7 @@ while True:
     if idx >= len(values):
         break
 
-print(values)
-print(idx, len(values))
+# print(values)
+# print(idx, len(values))
 
 print("steps part 2:", steps)

@@ -8,4 +8,5 @@ for i in open("day04.txt").read().split("\n"):
     i = list(sorted(q) for q in i.split())
     suma2 += (1 if sum(i.count(q) for q in i) == len(i) else 0)
 
-print(suma1, suma2)
+print("part 1:", suma1)
+print("part 2:", suma2)

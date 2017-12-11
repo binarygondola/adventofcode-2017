@@ -13,8 +13,6 @@ while registers not in states:
         registers[idx] += 1
         value -= 1
 
-print(states.index(registers))
+print("part 1:", len(states))
 
-print(len(states))
-
-print(len(states) - states.index(registers) + 1)
+print("part 2:", len(states) - states.index(registers))
