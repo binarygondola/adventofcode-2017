@@ -51,13 +51,28 @@ def bits(b):
     return a
 
 
+def remove(x, y, g):
+    g[x] = g[x][:y] + '0' + g[x][y+1:]
+    if g[x+1][y] == '1':
+        remove(x+1, y, g)
+    if g[x][y+1] == '1':
+        remove(x, y+1, g)
+    if g[x-1][y] == '1':
+        remove(x-1, y, g)
+    if g[x][y-1] == '1':
+        remove(x, y-1, g)
+
+
 grid = list()
+
+# boundaries
+grid.append("0"*130)
 
 string = open("day14.txt").read()
 count = 0
 for i in range(128):
     s = getHash(string + "-" + str(i))
-    tmp = ''
+    tmp = '0'
     for j in s:
         j = ord(j)
         if j >= ord('a'):
@@ -67,6 +82,7 @@ for i in range(128):
             j -= ord('0')
         tmp += bits(j)
 
+    tmp += '0'
     grid.append(tmp)
     for x in tmp:
         if x == '1':
@@ -74,5 +90,14 @@ for i in range(128):
 
 print("part 1:", count)
 
-for i in grid:
-    print(i)
+# boundaries
+grid.append("0"*130)
+
+groups = 0
+for i in range(len(grid)):
+    for j in range(len(grid[i])):
+        if grid[i][j] == '1':
+            groups += 1
+            remove(i, j, grid)
+
+print("part 2:", groups)
